@@ -18,8 +18,8 @@
     - [docker-compose .yml](#docker-compose-yml)
 - [Environnment variables](#environnment-variables)
   - [TIMEZONE](#timezone)
-- [FAQs](#FAQs)
-  - [Cannot access UI at the first time] (#Cannot access UI at the first time)
+- [FAQs](#faqs)
+  - [Cannot access UI at the first time](#cannot-access-ui-at-the-first-time)
 
 # Introduction
 
@@ -167,6 +167,7 @@ environment:
 ```
 
 # FAQs
+
 ## Cannot access UI at the first time
 At the first time after installing, you access the web UI but nothing display, only some directories are listing --> the check existing source code at ```/var/www/html/glpi``` is error (maybe downloading/extracting source code is error, so many files are missing --> cannot display the full UI)
 
