@@ -169,7 +169,19 @@ environment:
 # FAQs
 
 ## Cannot access UI at the first time
-At the first time after installing, you access the web UI but nothing display, only some directories are listing --> the check existing source code at ```/var/www/html/glpi``` is error (maybe downloading/extracting source code is error, so many files are missing --> cannot display the full UI)
+At the first time after installing, you access the web UI but nothing display, only some directories are listing --> check existing source code at ```/var/www/html/glpi```: *maybe downloading/extracting source code is error, so many files are missing --> cannot display the full UI*
 
 **Solution**
-*(temporary)* Access to the docker image & redownload the source code and extract to /var/www/html/glpi
+ - *(temporary)* Access to the docker image & redownload the source code and extract to /var/www/html/glpi
+ ```
+ # from start-glpi.sh
+ if [ "$(ls ${FOLDER_WEB}${FOLDER_GLPI})" ];
+then
+	echo "GLPI is already installed"
+else
+	wget -P ${FOLDER_WEB} ${SRC_GLPI}
+	tar -xzf ${FOLDER_WEB}${TAR_GLPI} -C ${FOLDER_WEB}
+	rm -Rf ${FOLDER_WEB}${TAR_GLPI}
+	chown -R www-data:www-data ${FOLDER_WEB}${FOLDER_GLPI}
+fi
+```
